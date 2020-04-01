@@ -1,0 +1,6 @@
+# action.yml
+name: 'Validate version'
+description: 'Confirm that the package version has been updated'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
