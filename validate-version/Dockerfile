@@ -2,7 +2,7 @@
 FROM alpine:3.10
 
 # Installs Git and Python
-RUN apk add --no-cache git python
+RUN apk add --no-cache git python3
 
 # Copies your code files from your action repository to the filesystem path `/` of the container
 COPY entrypoint.sh /entrypoint.sh
