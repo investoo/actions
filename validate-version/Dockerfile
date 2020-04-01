@@ -2,7 +2,7 @@
 FROM alpine:3.10
 
 RUN apt update && \
-    apt add -y git python
+    apt install -y git python
 
 # Copies your code files from your action repository to the filesystem path `/` of the container
 COPY entrypoint.sh /entrypoint.sh
