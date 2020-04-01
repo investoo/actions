@@ -1,8 +1,5 @@
 #!/bin/sh -l
-
 git fetch origin master
 
-python --version
-eval "ls"
-
-python ./validate.py
+eval "find validate.py"
+python validate.py "$(git show origin/master:package.json)"
