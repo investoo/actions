@@ -1,6 +1,10 @@
 # Container image that runs your code
 FROM alpine:3.10
 
+RUN apt-get update && \
+    apt-get upgrade -y && \
+    apt-get install -y git python
+
 # Copies your code files from your action repository to the filesystem path `/` of the container
 COPY entrypoint.sh /entrypoint.sh
 COPY validate.py /validate.py
