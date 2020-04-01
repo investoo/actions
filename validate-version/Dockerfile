@@ -1,8 +1,8 @@
 # Container image that runs your code
 FROM alpine:3.10
 
-RUN apt update && \
-    apt install -y git python
+# Installs Git and Python
+RUN apk add --no-cache git python
 
 # Copies your code files from your action repository to the filesystem path `/` of the container
 COPY entrypoint.sh /entrypoint.sh
