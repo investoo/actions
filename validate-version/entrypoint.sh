@@ -2,4 +2,6 @@
 
 git fetch origin master
 
-# python validate.py
+python --version
+
+python validate.py
