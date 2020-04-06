@@ -1,8 +1,5 @@
 #!/bin/sh -l
 
-apt-get update
-apt-get install jq
-
 set -x -o nounset -o errexit
 unset CLOUDSDK_CORE_PROJECT
 
