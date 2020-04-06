@@ -3,9 +3,9 @@
 set -x -o nounset -o errexit
 unset CLOUDSDK_CORE_PROJECT
 
-echo $GCLOUD_SERVICE_KEY < keyfile.json
-
+jq '.' $GCLOUD_SERVICE_KEY > keyfile.json
 ls
+
 cat keyfile.json
 
 # gcloud auth activate-service-account --key-file=keyfile.json
