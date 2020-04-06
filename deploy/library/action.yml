@@ -7,7 +7,7 @@ inputs:
     required: true
 
 runs:
-  env:
+  # env:
     # ACTIONS_REPO: ${{ github.event.repository }}
     # PROJECT_NAME: ${{ github.event.repository.name }}
     # NPM_TOKEN_READ: ${{ secrets.NPM_TOKEN_READ }}
