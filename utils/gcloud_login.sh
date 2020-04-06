@@ -3,7 +3,7 @@
 set -x -o nounset -o errexit
 unset CLOUDSDK_CORE_PROJECT
 
-$GCLOUD_SERVICE_KEY < keyfile.json
+echo $GCLOUD_SERVICE_KEY < keyfile.json
 
 cat keyfile.json
 
