@@ -4,10 +4,11 @@ set -x -o nounset -o errexit
 unset CLOUDSDK_CORE_PROJECT
 
 TARGET_VERSION=$(python -c "import json; print json.load(open('package.json'))['version']")
-MAJOR_VERSION="$( cut -d '.' -f 1 <<< "$TARGET_VERSION" )"
+IFS='.'
+read -a VERSION_SPLIT <<< "$TARGET_VERSION"
 
 echo $TARGET_VERSION
-echo $MAJOR_VERSION
+echo $VERSION_SPLIT[0]
 
 echo "gs://${BUCKET_NAME}/${CI_PROJECT_NAME}/v${MAJOR_VERSION}/"
 # gsutil -m cp -r -z dist/* gs://${BUCKET_NAME}/${CI_PROJECT_NAME}/v${MAJOR_VERSION}/
