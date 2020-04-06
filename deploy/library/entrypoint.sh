@@ -2,4 +2,4 @@
 
 git clone https://github.com/investoo/actions.git actions-repository
 
-./actions-repository/utils/gcloud_login.sh $1
+./actions-repository/utils/gcloud_login.sh

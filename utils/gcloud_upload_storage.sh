@@ -3,14 +3,7 @@
 set -x -o nounset -o errexit
 unset CLOUDSDK_CORE_PROJECT
 
-IS_PROD=$1
-
-if [ $IS_PROD ]; then
-    export BUCKET_NAME=$BUCKET_NAME_PROD
-else
-    export BUCKET_NAME=$BUCKET_NAME_STAGING
-fi
-
+export BUCKET_NAME=$BUCKET_NAME_PROD
 
 TARGET_VERSION=$(python -c "import json; print json.load(open('package.json'))['version']")
 [[ $TARGET_VERSION =~ ([0-9]+)\.[0-9]+ ]]
