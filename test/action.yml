@@ -1,8 +1,6 @@
 # action.yml
 name: 'Run Tests'
 inputs:
-  NPM_TOKEN:
-    description: 'NPM Authorization token'
   NEEDS_DOCKER:
     description: 'Do requests require docker?'
     default: false
@@ -11,5 +9,4 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.NPM_TOKEN }}
     - ${{ inputs.NEEDS_DOCKER }}
