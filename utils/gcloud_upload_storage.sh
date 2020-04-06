@@ -4,7 +4,7 @@ set -x -o nounset -o errexit
 unset CLOUDSDK_CORE_PROJECT
 
 TARGET_VERSION=$(python -c "import json; print json.load(open('package.json'))['version']")
-MAJOR_VERSION="$(cut -d'_' -f1 <<< "$TARGET_VERSION")"
+MAJOR_VERSION="$( cut -d '.' -f 1 <<< "$TARGET_VERSION" )"
 
 echo $TARGET_VERSION
 echo $MAJOR_VERSION
