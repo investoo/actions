@@ -7,18 +7,18 @@ inputs:
     required: true
 
 runs:
-  # env:
-    # ACTIONS_REPO: ${{ github.event.repository }}
-    # PROJECT_NAME: ${{ github.event.repository.name }}
-    # NPM_TOKEN_READ: ${{ secrets.NPM_TOKEN_READ }}
-    # NPM_TOKEN_PUBLISH: ${{ secrets.NPM_TOKEN_PUBLISH }}
-    # BUCKET_NAME_PROD: ${{ secrets.BUCKET_NAME_PROD }}
-    # BUCKET_NAME_STAGING: ${{ secrets.BUCKET_NAME_STAGING }}
-    # GCLOUD_PROJECT_ID_PROD: ${{ secrets.GCLOUD_PROJECT_ID_PROD }}
-    # GCLOUD_PROJECT_ID_STAGING: ${{ secrets.GCLOUD_PROJECT_ID_STAGING }}
-    # GCLOUD_SERVICE_KEY_PROD: ${{ secrets.GCLOUD_SERVICE_KEY_PROD }}
-    # GCLOUD_SERVICE_KEY_STAGING: ${{ secrets.GCLOUD_SERVICE_KEY_STAGING }}
-    # GCLOUD_ZONE: ${{ secrets.GCLOUD_ZONE }}
+  env:
+    ACTIONS_REPO: ${{ github.event.repository }}
+    PROJECT_NAME: ${{ github.event.repository.name }}
+    NPM_TOKEN_READ: ${{ secrets.NPM_TOKEN_READ }}
+    NPM_TOKEN_PUBLISH: ${{ secrets.NPM_TOKEN_PUBLISH }}
+    BUCKET_NAME_PROD: ${{ secrets.BUCKET_NAME_PROD }}
+    BUCKET_NAME_STAGING: ${{ secrets.BUCKET_NAME_STAGING }}
+    GCLOUD_PROJECT_ID_PROD: ${{ secrets.GCLOUD_PROJECT_ID_PROD }}
+    GCLOUD_PROJECT_ID_STAGING: ${{ secrets.GCLOUD_PROJECT_ID_STAGING }}
+    GCLOUD_SERVICE_KEY_PROD: ${{ secrets.GCLOUD_SERVICE_KEY_PROD }}
+    GCLOUD_SERVICE_KEY_STAGING: ${{ secrets.GCLOUD_SERVICE_KEY_STAGING }}
+    GCLOUD_ZONE: ${{ secrets.GCLOUD_ZONE }}
   using: 'docker'
   image: 'Dockerfile'
   args:
