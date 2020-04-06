@@ -1,5 +1,7 @@
 #!/bin/sh -l
 
+echo "Logging into Google Cloud"
+
 set -x -o nounset -o errexit
 unset CLOUDSDK_CORE_PROJECT
 
