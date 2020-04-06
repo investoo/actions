@@ -9,6 +9,4 @@ IFS='.' read -r MAJOR_VERSION string <<EOF
 $TARGET_VERSION
 EOF
 
-echo "gs://${GCLOUD_BUCKET_NAME}/${GH_PROJECT_NAME}/v${MAJOR_VERSION}/"
-# gsutil -m cp -r -z dist/* gs://${BUCKET_NAME}/${CI_PROJECT_NAME}/v${MAJOR_VERSION}/
-exit 0
+gsutil -m cp -r -z dist/* gs://${GCLOUD_BUCKET_NAME}/${GH_PROJECT_NAME}/v${MAJOR_VERSION}/
