@@ -1,5 +1,7 @@
 #!/bin/sh -l
 
+echo "Uploading files to Google Bucket"
+
 set -x -o nounset -o errexit
 unset CLOUDSDK_CORE_PROJECT
 
