@@ -1,0 +1,13 @@
+dispatch:
+  - url: "pms.igms.io/*"
+    service: partners
+  - url: "cdms.igms.io/*"
+    service: commercial
+  - url: "pts.igms.io/*"
+    service: prices
+  - url: "ims.igms.io/*"
+    service: images
+  - url: "offers.igms.io/*"
+    service: offers
+  - url: "integrations.igms.io/*"
+    service: integrations
