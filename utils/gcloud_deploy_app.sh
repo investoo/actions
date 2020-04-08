@@ -11,7 +11,9 @@ npm config set //registry.npmjs.org/:_authToken ${NPM_TOKEN_READ}
 
 envsubst "$(env | cut -d= -f1 | sed -e 's/^/$/')" < "deploy/${DEPLOY_ENV}/app.yml" > app_generated.yml
 
-ls
+ls ../
+echo "hi"
+ls ../../
 # cp "../../dispatch/${DEPLOY_ENV}.yml" dispatch.yml
 
 gcloud app deploy app_generated.yml
