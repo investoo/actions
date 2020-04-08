@@ -8,7 +8,7 @@ unset CLOUDSDK_CORE_PROJECT
 touch .npmrc
 echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN_READ}" > .npmrc
 
-envsubst "$(env | cut -d= -f1 | sed -e 's/^/$/')" < app.yml > app_generated.yml
+envsubst "$(env | cut -d= -f1 | sed -e 's/^/$/')" < "deploy/${DEPLOY_ENV}/app.yml" > app_generated.yml
 ls
 cat app_generated.yml
 cat .npmrc
