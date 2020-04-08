@@ -5,7 +5,7 @@ echo "Deploying app to App Engine"
 set -x -o nounset -o errexit
 unset CLOUDSDK_CORE_PROJECT
 
-ls
+ls ${HOME}
 
 # envsubst "$(env | cut -d= -f1 | sed -e 's/^/$/')" < "deploy/${DEPLOY_ENV}/app.yml" > app_generated.yml
 # cp "../../dispatch/${DEPLOY_ENV}.yml" dispatch.yml
