@@ -2,4 +2,9 @@
 
 npm config set //registry.npmjs.org/:_authToken ${NPM_TOKEN_READ}
 npm ci
-npm run build
+
+if [[ -z "${BUILD_MODE}" ]]; then
+  npm run build
+else
+  npm run build -- --mode ${BUILD_MODE}
+fi
