@@ -5,7 +5,7 @@ echo "Deploying app to App Engine"
 set -x -o nounset -o errexit
 unset CLOUDSDK_CORE_PROJECT
 
-echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN_READ}" > .npmrc
+echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
 
 ls -la
 

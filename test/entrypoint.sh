@@ -2,7 +2,7 @@
 
 NEEDS_DOCKER=$1
 
-npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN_READ
+npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
 npm ci
 
 if [[ -z "${NEEDS_DOCKER}" ]]; then

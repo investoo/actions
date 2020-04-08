@@ -1,6 +1,6 @@
 #!/bin/sh -l
 
-npm config set //registry.npmjs.org/:_authToken ${NPM_TOKEN_READ}
+npm config set //registry.npmjs.org/:_authToken ${NPM_TOKEN}
 npm ci
 
 if [[ -z "${BUILD_MODE}" ]]; then
