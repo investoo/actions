@@ -7,7 +7,7 @@ unset CLOUDSDK_CORE_PROJECT
 
 echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN_READ}" > .npmrc
 
-ls la
+ls -la
 
 envsubst "$(env | cut -d= -f1 | sed -e 's/^/$/')" < "deploy/${DEPLOY_ENV}/app.yml" > app_generated.yml
 
