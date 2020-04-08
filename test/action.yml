@@ -2,7 +2,7 @@
 name: 'Run Tests'
 inputs:
   NEEDS_DOCKER:
-    description: 'Do requests require docker?'
+    description: 'Do tests require docker?'
     default: false
 
 runs:
