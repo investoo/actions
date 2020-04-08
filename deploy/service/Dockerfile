@@ -1,6 +1,11 @@
 FROM investoo/gcloud-sdk
 
-COPY dispatch /dispatch
-COPY entrypoint.sh /entrypoint.sh
+ARG NPM_TOKEN
+
+WORKDIR /app
+COPY . /app
+COPY entrypoint.sh /app/entrypoint.sh
+
+RUN echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
 
 ENTRYPOINT ["/entrypoint.sh"]
