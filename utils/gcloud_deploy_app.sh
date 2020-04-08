@@ -8,8 +8,10 @@ unset CLOUDSDK_CORE_PROJECT
 touch .npmrc
 echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN_READ}" > .npmrc
 
-envsubst "$(env | cut -d= -f1 | sed -e 's/^/$/')" < "deploy/${DEPLOY_ENV}/app.yml" > app_generated.yml
-ls dispatch
+# envsubst "$(env | cut -d= -f1 | sed -e 's/^/$/')" < "deploy/${DEPLOY_ENV}/app.yml" > app_generated.yml
+ls
+
+exit 1
 
 # gcloud app deploy app_generated.yml
 # gcloud app deploy dispatch.yml
