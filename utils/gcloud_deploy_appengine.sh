@@ -8,7 +8,7 @@ unset CLOUDSDK_CORE_PROJECT
 echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
 echo ../../app/dispatch/${DEPLOY_ENV}.yml > dispatch.yml
 
-echo ../../app/dispatch/${DEPLOY_ENV}.yml
+cat ../../app/dispatch/${DEPLOY_ENV}.yml
 echo "nice"
 cat dispatch.yml
 
