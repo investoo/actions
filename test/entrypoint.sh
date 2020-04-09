@@ -16,3 +16,5 @@ else
   echo "no docker!"
   # npm run test
 fi
+
+exit 1
