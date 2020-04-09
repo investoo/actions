@@ -6,7 +6,7 @@ set -x -o nounset -o errexit
 unset CLOUDSDK_CORE_PROJECT
 
 echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
-cp ../../app/dispatch/${DEPLOY_ENV}.yml > dispatch.yml
+cp ../../app/dispatch/${DEPLOY_ENV}.yml dispatch.yml
 
 cat dispatch.yml
 
