@@ -3,8 +3,11 @@
 npm config set //registry.npmjs.org/:_authToken ${NPM_TOKEN}
 npm ci
 
+
 if [$BUILD_MODE]; then
-  npm run build -- --mode ${BUILD_MODE}
+  echo $BUILD_MODE
+#   npm run build -- --mode ${BUILD_MODE}
 else
-  npm run build
+ echo "no build mode"
+#   npm run build
 fi
