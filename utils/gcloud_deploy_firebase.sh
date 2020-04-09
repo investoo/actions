@@ -1,5 +1,7 @@
 #!/bin/sh -l
 
+echo "Deploying app to Firebase"
+
 set -x -o nounset -o errexit
 
 export GOOGLE_PROJECT_ID=$GCLOUD_PROJECT_ID

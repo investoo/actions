@@ -1,5 +1,7 @@
 #!/bin/sh -l
 
+echo "Deploying app to Cloud Functions"
+
 set -x -o nounset -o errexit
 
 echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc

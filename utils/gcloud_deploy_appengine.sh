@@ -10,7 +10,7 @@ echo "../../app/dispatch/${DEPLOY_ENV}.yml" > dispatch.yml
 
 envsubst "$(env | cut -d= -f1 | sed -e 's/^/$/')" < "deploy/${DEPLOY_ENV}/app.yml" > app_generated.yml
 
-# gcloud app deploy app_generated.yml
+gcloud app deploy app_generated.yml
 gcloud app deploy dispatch.yml
 
 exit 1
