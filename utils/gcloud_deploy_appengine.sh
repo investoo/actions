@@ -12,5 +12,3 @@ envsubst "$(env | cut -d= -f1 | sed -e 's/^/$/')" < "deploy/${DEPLOY_ENV}/app.ym
 
 gcloud app deploy app_generated.yml
 gcloud app deploy dispatch.yml
-
-exit 1
