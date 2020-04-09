@@ -10,4 +10,4 @@ if [ $NEEDS_DOCKER = true ]; then
   docker-compose run --rm $GH_PROJECT_NAME npm run test
 else
   npm run test
-fi
+fi    
