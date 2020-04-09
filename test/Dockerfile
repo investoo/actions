@@ -1,7 +1,8 @@
 FROM investoo/gcloud-sdk
 
-# Copies your code file from your action repository to the filesystem path `/` of the container
+COPY --from=library/docker:latest /usr/local/bin/docker /usr/bin/docker
+COPY --from=docker/compose:latest /usr/local/bin/docker-compose /usr/bin/docker-compose
+
 COPY entrypoint.sh /entrypoint.sh
 
-# Code file to execute when the docker container starts up (`entrypoint.sh`)
 ENTRYPOINT ["/entrypoint.sh"]
