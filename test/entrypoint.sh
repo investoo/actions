@@ -7,7 +7,6 @@ npm ci
 
 if [ $NEEDS_DOCKER = true ]; then
   ls
-  docker-compose up -d
   docker-compose run --rm $GH_PROJECT_NAME npm run test
 else
   npm run test
