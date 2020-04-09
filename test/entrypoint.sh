@@ -2,6 +2,9 @@
 
 NEEDS_DOCKER=$1
 
+echo $1 
+echo $NEEDS_DOCKER
+
 npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
 npm ci
 
