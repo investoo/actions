@@ -4,9 +4,10 @@ NEEDS_DOCKER=$1
 
 echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
 npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
-npm ci
 
 cat .npmrc
+
+npm ci
 
 if [$NEEDS_DOCKER]; then
   docker-compose up -d
