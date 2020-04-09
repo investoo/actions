@@ -3,8 +3,10 @@
 npm config set //registry.npmjs.org/:_authToken ${NPM_TOKEN}
 npm ci
 
+echo $BUILD_MODE
 
-if [$BUILD_MODE]; then
+
+if [$BUILD_MODE != 'production']; then
   echo $BUILD_MODE
 #   npm run build -- --mode ${BUILD_MODE}
 else
