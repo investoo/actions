@@ -1,3 +1,3 @@
 #!/bin/sh -l
 
-npm publish --tag=$PACKAGE_VERSION
+npm publish --tag $NPM_PUBLISH_VERSION
