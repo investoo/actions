@@ -12,6 +12,9 @@ else
   DEPLOYMENT_MESSAGE=":x: *Deployment Failed*"
 fi
 
+echo DEPLOYMENT_SUCCESSFUL
+echo DEPLOYMENT_TARGET
+
 envsubst < template.json > message.json
 
 cat message.json
