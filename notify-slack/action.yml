@@ -1,0 +1,16 @@
+# action.yml
+name: 'Run Tests'
+inputs:
+  DEPLOYMENT_TARGET:
+    description: 'What environment are you trying to deploy to?'
+    required: true
+  DEPLOYMENT_SUCCESSFUL:
+    description: 'Was the deployment successful?'
+    default: false
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.DEPLOYMENT_TARGET }}
+    - ${{ inputs.DEPLOYMENT_SUCCESSFUL }}
