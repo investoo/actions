@@ -7,9 +7,11 @@ export GITHUB_WORKFLOW_URL=$GITHUB_REPO_URL/actions/runs/$GITHUB_RUN_ID
 export GITHUB_COMMIT_URL=$GITHUB_REPO_URL/commit/$GITHUB_SHA
 
 if [ $DEPLOYMENT_SUCCESSFUL = true ]; then
-  export DEPLOYMENT_MESSAGE=":white_check_mark: *Deployment Successful*"
+  export DEPLOYMENT_STATUS=Succeeded
+  export DEPLOYMENT_MESSAGE=":white_check_mark: *Deployment $DEPLOYMENT_STATUS*"
 else
-  export DEPLOYMENT_MESSAGE=":x: *Deployment Failed*"
+  export DEPLOYMENT_STATUS=Failed
+  export DEPLOYMENT_MESSAGE=":x: *Deployment $DEPLOYMENT_STATUS*"
 fi
 
 envsubst < /template.json > message.json
