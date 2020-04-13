@@ -53,7 +53,7 @@
 			"elements": [
 				{
 					"type": "mrkdwn",
-					"text": ":bdr: <${GITHUB_WORKFLOW_URL}|${GITHUB_RUN_ID}>"
+					"text": ":bdr: <${GITHUB_WORKFLOW_URL}|More Details>"
 				}
 			]
 		}
