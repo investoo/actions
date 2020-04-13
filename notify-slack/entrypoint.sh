@@ -1,6 +1,6 @@
 #!/bin/sh -l
 
-ls -la
+ls /
 
 # DEPLOYMENT_TARGET=$1
 # DEPLOYMENT_SUCCESSFUL=$2
