@@ -14,6 +14,6 @@ fi
 
 envsubst < /template.json > message.json
 
-echo message.json
+cat message.json
 
 # curl -X POST -H 'Content-type: application/json' --data '@message.json' $SLACK_WEBHOOK_URL
