@@ -71,6 +71,7 @@ This Action will install NPM dependencies and deploy the app to Google Cloud Fun
 | `GH_PROJECT_NAME` | String | **REQUIRED** The name of the repository. Can be accessed via `github.event.repository.name`. |
 | `NPM_TOKEN` | String | **REQUIRED** Github access token, to install private registry packages |
 | `GCLOUD_PROJECT_ID` | String | **REQUIRED** ID of the Google Cloud Project |
+| `GCLOUD_SERVICE_KEY` | String | **REQUIRED** Base64-encoded Google Cloud Service Key  |
 
 ### Usage: 
 ```yml
