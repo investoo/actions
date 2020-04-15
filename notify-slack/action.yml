@@ -7,6 +7,9 @@ inputs:
     description: 'Was the deployment successful?'
     default: false
     required: false
+  WEBHOOK_URL:
+    description: 'The Slack webhook URL that the message will be sent to'
+    required: true
 
 runs:
   using: 'docker'
@@ -14,3 +17,4 @@ runs:
   env:
     DEPLOYMENT_TARGET: ${{ inputs.DEPLOYMENT_TARGET }}
     DEPLOYMENT_SUCCESSFUL: ${{ inputs.DEPLOYMENT_SUCCESSFUL }}
+    WEBHOOK_URL: ${{ inputs.WEBHOOK_URL }}
