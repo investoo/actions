@@ -9,3 +9,5 @@ cat .npmrc
 ls
 
 npm ci
+
+exit 1
