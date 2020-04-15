@@ -2,7 +2,7 @@ name: 'Deploy Library'
 description: 'Deploy library by building it and uploading it to a bucket'
 inputs:
   PUBLISH_PACKAGE:
-    description: 'Should the package be published to the NPM registry and uploaded to the GCloud Bucket?'
+    description: 'Should the package be published to the NPM registry?'
     default: false
 
 runs:
