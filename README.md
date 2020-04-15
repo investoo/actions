@@ -9,7 +9,6 @@
 * [Library](#deploy-library)
 * [Package](#deploy-package)
 * [Service](#deploy-service)
-* [Library](#deploy-library)
 
 #### Miscellaneous
 * [Notify Slack](#notify-slack)
@@ -159,4 +158,24 @@ This Action will install NPM dependencies, upload files to a Google Cloud Bucket
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       GCLOUD_PROJECT_ID: tech-microservices-staging
       GCLOUD_SERVICE_KEY: ${{ secrets.GCLOUD_SERVICE_KEY_STAGING }}
+```
+
+---
+
+## Deploy Package
+This Action will install NPM dependencies, and publish to the NPM registry
+
+### Env Variables
+
+| Name | Type | Description |
+| --- | --- | --- |
+| `NPM_TOKEN` | String | **REQUIRED** Github access token, to install private registry packages |
+
+### Usage: 
+```yml
+  ...
+  - uses: investoo/actions/deploy/package@master
+    name: Deploy
+    env:
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 ```
