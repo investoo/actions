@@ -6,4 +6,9 @@ git clone https://github.com/investoo/actions.git actions-repository
 
 ./actions-repository/utils/npm_build.sh
 
-./actions-repository/utils/npm_publish.sh
+if [ $PUBLISH_PACKAGE = true ]; then
+  echo "Publishing package"
+  ./actions-repository/utils/npm_publish.sh
+else
+  echo "Package not published"
+fi
