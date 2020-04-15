@@ -41,6 +41,7 @@ This Action will install NPM dependencies, run the build command, and finally de
       GCLOUD_PROJECT_ID: tech-microservices-production
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+      OTHER_ENV_KEYS: here
   ...
 ```
 
@@ -88,6 +89,7 @@ This Action will install NPM dependencies and deploy the app to Google Cloud Fun
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       GCLOUD_PROJECT_ID: tech-microservices-staging
       GCLOUD_SERVICE_KEY: ${{ secrets.GCLOUD_SERVICE_KEY_STAGING }}
+      OTHER_ENV_KEYS: here
 ```
 
 ---
@@ -125,6 +127,7 @@ This Action will install NPM dependencies, upload files to a Google Cloud Bucket
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       GCLOUD_PROJECT_ID: tech-microservices-staging
       GCLOUD_SERVICE_KEY: ${{ secrets.GCLOUD_SERVICE_KEY_STAGING }}
+      OTHER_ENV_KEYS: here
 ```
 
 ---
@@ -136,7 +139,11 @@ This Action will install NPM dependencies, and publish to the NPM registry
 
 | Name | Type | Description |
 | --- | --- | --- |
+| `GH_PROJECT_NAME` | String | **REQUIRED** The name of the repository. Can be accessed via `github.event.repository.name`. |
 | `NPM_TOKEN` | String | **REQUIRED** Github access token, to install private registry packages |
+| `GCLOUD_SERVICE_KEY` | String | **REQUIRED** ID of the Google Cloud Project |
+| `GCLOUD_PROJECT_ID` | String | **REQUIRED** ID of the Google Cloud Project |
+
 
 ### Usage: 
 ```yml
@@ -145,4 +152,92 @@ This Action will install NPM dependencies, and publish to the NPM registry
     name: Deploy
     env:
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      OTHER_ENV_KEYS: here
+```
+
+---
+
+## Deploy Service
+This Action will install NPM dependencies, build the project, and deploy it to Google AppEngine
+
+### Inputs
+
+| Name | Type | Default | Description |
+| --- | --- | --- | --- |
+| `DEPLOY_ENV` | String |  | **REQUIRED** Environemnt to deploy to. Should be either `prod` or `staging` |
+| `GCLOUD_ZONE` | Boolean | europe-west2-a | Default region or zone |
+
+### Env Variables
+
+| Name | Type | Description |
+| --- | --- | --- |
+| `NPM_TOKEN` | String | **REQUIRED** Github access token, to install private registry packages |
+
+### Usage: 
+This Action requires the service to have a `deploy` directory, and `prod` and `staging` directories within that. Both of these child directories shoul have an `app.yml` inside, to tell AppEngine the deployment configuration.
+
+For example, in your `prod/staging/app.yml`:
+```yml
+runtime: nodejs10
+service: ${GH_PROJECT_NAME}
+
+env_variables:
+  NODE_ENV: staging
+  OTHER_KEY: '${OTHER_ENV_KEYS}'
+
+resources:
+  cpu: 2
+  memory_gb: 5
+
+network:
+  name: default
+
+automatic_scaling:
+  min_num_instances: 3
+  max_num_instances: 10
+  cool_down_period_sec: 180
+```
+
+An in your workflow file:
+
+```yml
+  ...
+  - uses: investoo/actions/deploy/service@master
+    name: Deploy
+    with:
+      DEPLOY_ENV: staging
+    env:
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      OTHER_ENV_KEYS: mapped
+```
+
+---
+
+## Notify Slack
+This action will send a pre-formatted message via the Slack webhook URL that is provided. To grab the success state of the previous step, a job will need to be run within your workflow to make that information accessible to this action. You want this action to run `if: always()`, to prevent the workflow being short-circuited.
+
+### Inputs
+
+| Name | Type | Default | Description |
+| --- | --- | --- | --- |
+| `DEPLOYMENT_TARGET` | String |  | **REQUIRED** Environment that deployment was attempted. Should be either `Production` or `Staging` |
+| `DEPLOYMENT_SUCCESSFUL` | Boolean | false | Was the deployment a success? |
+| `WEBHOOK_URL` | String |  | **REQUIRED** Slack Webhook URL |
+
+### Usage
+
+```yml
+  ...
+  - name: Record Deployment Result
+    if: always()
+    run: |
+      SUCCESS=false; [ ${{ job.status }} = Success ] && SUCCESS=true
+      echo ::set-env name=DEPLOYMENT_SUCCESSFUL::$SUCCESS
+  - uses: investoo/actions/notify-slack@master
+    if: always()
+    name: Send deployment result to Slack
+    with:
+      DEPLOYMENT_TARGET: Staging
+      DEPLOYMENT_SUCCESSFUL: ${{ env.DEPLOYMENT_SUCCESSFUL }}
+      WEBHOOK_URL: ${{ secrets.WEBHOOK_URL_SLACK }}
 ```
