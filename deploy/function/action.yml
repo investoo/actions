@@ -5,7 +5,7 @@ inputs:
     description: 'Default region or zone'
     default: europe-west2-a
   ENTRY_POINT:
-    description: 'Entrypoint of the function'
+    description: 'Entrypoint function to be invoked'
     default: handle
   RUNTIME:
     description: 'Runtime environment that the function runs in'
@@ -28,6 +28,8 @@ runs:
   image: 'Dockerfile'
   env:
     GCLOUD_ZONE: ${{ inputs.GCLOUD_ZONE }}
+    ENTRY_POINT: ${{ inputs.ENTRY_POINT }}
+    RUNTIME: ${{ inputs.RUNTIME }}
     REGION: ${{ inputs.REGION }}
     MEMORY: ${{ inputs.MEMORY }}
     TRIGGER: ${{ inputs.TRIGGER }}

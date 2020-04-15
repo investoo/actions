@@ -57,6 +57,8 @@ This Action will install NPM dependencies and deploy the app to Google Cloud Fun
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
 | `GCLOUD_ZONE` | String | europe-west2-a | Default region or zone |
+| `ENTRY_POINT` | String | handle | Entrypoint function to be invoked |
+| `RUNTIME` | String | nodejs8 | Runtime environment that the function runs in |
 | `REGION` | String | europe-west2 | Deployment region |
 | `MEMORY` | String | 128MB | Memory to allocate the function |
 | `TRIGGER` | String | HTTP | What type of event triggers the function? Options are `TOPIC` and `HTTP` |
@@ -77,6 +79,8 @@ This Action will install NPM dependencies and deploy the app to Google Cloud Fun
     name: Deploy
     with:
       GCLOUD_ZONE: europe-west2-a
+      ENTRY_POINT: handle
+      RUNTIME: nodejs8
       REGION: europe-west2
       MEMORY: 128MB
       TRIGGER: HTTP
