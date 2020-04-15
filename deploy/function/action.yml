@@ -1,4 +1,3 @@
-# action.yml
 name: 'Deploy Function'
 description: 'Deploy code by building it and deploying to Google Cloud Functions'
 

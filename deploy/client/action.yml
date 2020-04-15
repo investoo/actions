@@ -1,4 +1,3 @@
-# action.yml
 name: 'Deploy Client'
 description: 'Deploy Client by building it and deploying on Firebase'
 

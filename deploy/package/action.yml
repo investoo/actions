@@ -1,4 +1,3 @@
-# action.yml
 name: 'Deploy Package'
 description: 'Deploy package by building it and publishing it to NPM'
 

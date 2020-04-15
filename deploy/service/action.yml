@@ -1,4 +1,3 @@
-# action.yml
 name: 'Deploy Service'
 description: 'Deploy Service to Google App Engine'
 
