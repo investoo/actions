@@ -4,5 +4,6 @@ echo "registry=https://npm.pkg.github.com/investoo" > .npmrc
 echo "//npm.pkg.github.com/:_authToken=${NPM_TOKEN}" > .npmrc
 
 cat .npmrc
+ls
 
 npm ci
