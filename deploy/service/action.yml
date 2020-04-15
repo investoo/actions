@@ -1,6 +1,16 @@
 name: 'Deploy Service'
 description: 'Deploy Service to Google App Engine'
+inputs:
+  DEPLOY_ENV:
+    description: 'Which environment to deploy to'
+    required: true
+  GCLOUD_ZONE:
+    description: 'Default region or zone'
+    default: europe-west2-a
 
 runs:
   using: 'docker'
   image: 'Dockerfile'
+  env:
+    DEPLOY_ENV: ${{ inputs.DEPLOY_ENV }}
+    GCLOUD_ZONE: ${{ inputs.GCLOUD_ZONE }}
