@@ -1,9 +1,8 @@
 #!/bin/sh -l
 
-NEEDS_DOCKER=$1
+git clone https://github.com/investoo/actions.git actions-repository
 
-npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
-npm ci
+./actions-repository/utils/npm_install.sh
 
 if [ $NEEDS_DOCKER = true ]; then
   ls

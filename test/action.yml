@@ -8,5 +8,5 @@ inputs:
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  args:
-    - ${{ inputs.NEEDS_DOCKER }}
+  env:
+    NEEDS_DOCKER: ${{ inputs.NEEDS_DOCKER }}
