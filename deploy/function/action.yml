@@ -1,6 +1,28 @@
 name: 'Deploy Function'
 description: 'Deploy code by building it and deploying to Google Cloud Functions'
+inputs:
+  GCLOUD_ZONE:
+    description: 'Default region or zone'
+    default: europe-west2-a
+  REGION:
+    description: 'Deployment region'
+    default: 'europe-west2'
+  MEMORY:
+    description: 'Memory to allocate the function'
+    default: 128MB
+  TRIGGER:
+    description: 'What type of event triggers the function?'
+    default: 'HTTP'
+  TRIGGER_TOPIC:
+    description: 'What topic triggers the function? Only required if input.TRIGGER is set to "TOPIC"'
+    default: false
 
 runs:
   using: 'docker'
   image: 'Dockerfile'
+  env:
+    - GCLOUD_ZONE: ${{ inputs.GCLOUD_ZONE }}
+    - REGION: ${{ inputs.REGION }}
+    - MEMORY: ${{ inputs.MEMORY }}
+    - TRIGGER: ${{ inputs.TRIGGER }}
+    - TRIGGER_TOPIC: ${{ inputs.TRIGGER_TOPIC }}
