@@ -1,7 +1,5 @@
 # actions
 > A repository containing our Github Actions
----
-## Action List
 
 #### Deploy
 * [Client](#deploy-client)
@@ -90,37 +88,6 @@ This Action will install NPM dependencies and deploy the app to Google Cloud Fun
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       GCLOUD_PROJECT_ID: tech-microservices-staging
       GCLOUD_SERVICE_KEY: ${{ secrets.GCLOUD_SERVICE_KEY_STAGING }}
-```
-
----
-
-## Deploy Client
-This Action will install NPM dependencies, run the build command, and finally deploy the app to Firebase.
-
-### Env Variables
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `GH_PROJECT_NAME` | String | **REQUIRED** The name of the repository. Can be accessed via `github.event.repository.name`. |
-| `DEPLOY_ENV` | String | **REQUIRED** Deployment target. Options are `staging` or `prod`. |
-| `BUILD_MODE` | String | The mode passed to the `--mode` flag during `npm run build` |
-| `GCLOUD_PROJECT_ID` | String | **REQUIRED** ID of the Google Cloud Project |
-| `NPM_TOKEN` | String | **REQUIRED** Github access token, to install private registry packages |
-| `FIREBASE_TOKEN` | String | **REQUIRED** Firebase Token, to allow deployment |
-
-### Usage: 
-```yml
-  ...
-  - uses: investoo/actions/deploy/client@master
-    name: Deploy
-    env:
-      GH_PROJECT_NAME: ${{ github.event.repository.name }}
-      DEPLOY_ENV: prod
-      BUILD_MODE: production
-      GCLOUD_PROJECT_ID: tech-microservices-production
-      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-      FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-  ...
 ```
 
 ---
