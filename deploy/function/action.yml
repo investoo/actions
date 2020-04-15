@@ -21,8 +21,8 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   env:
-    - GCLOUD_ZONE: ${{ inputs.GCLOUD_ZONE }}
-    - REGION: ${{ inputs.REGION }}
-    - MEMORY: ${{ inputs.MEMORY }}
-    - TRIGGER: ${{ inputs.TRIGGER }}
-    - TRIGGER_TOPIC: ${{ inputs.TRIGGER_TOPIC }}
+    GCLOUD_ZONE: ${{ inputs.GCLOUD_ZONE }}
+    REGION: ${{ inputs.REGION }}
+    MEMORY: ${{ inputs.MEMORY }}
+    TRIGGER: ${{ inputs.TRIGGER }}
+    TRIGGER_TOPIC: ${{ inputs.TRIGGER_TOPIC }}
