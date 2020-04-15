@@ -1,7 +1,13 @@
 # action.yml
 name: 'Deploy Library'
 description: 'Deploy library by building it and uploading it to a bucket'
+inputs:
+  PUBLISH_PACKAGE:
+    description: 'Should the package be published and uploaded to the Google Cloud? Bucket?'
+    default: false
 
 runs:
   using: 'docker'
   image: 'Dockerfile'
+  args:
+    - ${{ inputs.PUBLISH_PACKAGE }}
