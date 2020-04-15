@@ -6,10 +6,11 @@ inputs:
   DEPLOYMENT_SUCCESSFUL:
     description: 'Was the deployment successful?'
     default: false
+    required: false
 
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  args:
-    - ${{ inputs.DEPLOYMENT_TARGET }}
-    - ${{ inputs.DEPLOYMENT_SUCCESSFUL }}
+  env:
+    DEPLOYMENT_TARGET: ${{ inputs.DEPLOYMENT_TARGET }}
+    DEPLOYMENT_SUCCESSFUL: ${{ inputs.DEPLOYMENT_SUCCESSFUL }}
