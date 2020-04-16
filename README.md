@@ -176,7 +176,7 @@ This Action will install NPM dependencies, build the project, and deploy it to G
 ### Usage: 
 This Action requires the service to have a `deploy` directory, and `prod` and `staging` directories within that. Both of these child directories shoul have an `app.yml` inside, to tell AppEngine the deployment configuration.
 
-For example, in your `prod/staging/app.yml`:
+For example, in your `deploy/staging/app.yml`:
 ```yml
 runtime: nodejs10
 service: ${GH_PROJECT_NAME}
@@ -198,7 +198,7 @@ automatic_scaling:
   cool_down_period_sec: 180
 ```
 
-An in your workflow file:
+And in your workflow file:
 
 ```yml
   ...
