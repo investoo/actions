@@ -160,6 +160,9 @@ This Action will install NPM dependencies, and publish to the NPM registry
 ## Deploy Service
 This Action will install NPM dependencies, build the project, and deploy it to Google AppEngine
 
+**NOTE**
+Deploying a service also deploys the `dispatch.yml` found within this project. This sets our routing rules. If you are deploying a *NEW* service to AppEngine, you'll need to update the `dispatch/prod.yml` and `dispatch/staging.yml` files as well.
+
 ### Inputs
 
 | Name | Type | Default | Description |
