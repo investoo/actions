@@ -14,4 +14,4 @@ fi
 
 envsubst < /template.json > message.json
 
-# curl -X POST -H 'Content-type: application/json' --data '@message.json' $WEBHOOK_URL
+curl -X POST -H 'Content-type: application/json' --data '@message.json' $WEBHOOK_URL
