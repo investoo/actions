@@ -241,3 +241,40 @@ This action will send a pre-formatted message via the Slack webhook URL that is 
       DEPLOYMENT_SUCCESSFUL: ${{ env.DEPLOYMENT_SUCCESSFUL }}
       WEBHOOK_URL: ${{ secrets.WEBHOOK_URL_SLACK }}
 ```
+
+---
+
+## Test
+This action will run the tests in your project. Failing tests will fail the check.
+
+### Inputs
+
+| Name | Type | Default | Description |
+| --- | --- | --- | --- |
+| `NEEDS_DOCKER` | boolean | false | Should the tests be run in a docker environment? |
+
+### Usage
+
+```yml
+  ...
+  - uses: investoo/actions/test@master
+    name: Run Tests
+    with:
+      NEEDS_DOCKER: true
+    env:
+      ANY_OTHER: env
+      VARS: here
+```
+
+---
+
+## Validate Version
+This action will compare the package.json version number from master against your branch. If the master branch version is the same or higher, the check will fail.
+
+### Usage
+
+```yml
+  ...
+  - uses: investoo/actions/validate-version@master
+    name: Validate Package Version
+```
