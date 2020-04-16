@@ -13,4 +13,5 @@ runs:
   image: 'Dockerfile'
   env:
     DEPLOY_ENV: ${{ inputs.DEPLOY_ENV }}
+    TESTING_BEAU: ${{ github.event.repository.name }}
     GCLOUD_ZONE: ${{ inputs.GCLOUD_ZONE }}
