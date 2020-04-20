@@ -12,7 +12,7 @@ if [ $NEEDS_DOCKER = true ]; then
   echo "package.json: "
   cat ./package.json
   echo "running ls within docker: "
-  docker-compose run --rm $GH_PROJECT_NAME ls ./
+  echo $(docker-compose run -T --rm $GH_PROJECT_NAME ls ./)
   echo "running npm test"
   docker-compose run --rm $GH_PROJECT_NAME npm run test
 else
