@@ -11,8 +11,11 @@ if [ $NEEDS_DOCKER = true ]; then
   cat ./docker-compose.yml
   echo "package.json: "
   cat ./package.json
+  echo "the project name is $GH_PROJECT_NAME"
+  echo "running echo within docker: "
+  docker-compose run --rm $GH_PROJECT_NAME echo "testing"
   echo "running ls within docker: "
-  echo $(docker-compose run -T --rm $GH_PROJECT_NAME ls ./)
+  docker-compose run --rm $GH_PROJECT_NAME echo "testing"
   echo "running npm test"
   docker-compose run --rm $GH_PROJECT_NAME npm run test
 else
