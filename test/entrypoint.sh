@@ -8,6 +8,7 @@ git clone https://github.com/investoo/actions.git actions-repository
 
 if [ $NEEDS_DOCKER = true ]; then
   echo "docker-compose.yml: "
+  echo "sick"
   cat ./docker-compose.yml
   echo "package.json: "
   cat ./package.json
