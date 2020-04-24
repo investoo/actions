@@ -10,4 +10,6 @@ else
   ./actions-repository/utils/npm_config.sh
 fi
 
+./actions-repository/utils/npm_create_npmrc.sh
+
 ./actions-repository/utils/gcloud_deploy_appengine.sh
