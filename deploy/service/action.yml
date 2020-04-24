@@ -7,6 +7,9 @@ inputs:
   GCLOUD_ZONE:
     description: 'Default region or zone'
     default: europe-west2-a
+  NPM_OLD:
+    description: 'Auth with NPM Registry, not Github'
+    default: false
 
 runs:
   using: 'docker'
@@ -14,3 +17,4 @@ runs:
   env:
     DEPLOY_ENV: ${{ inputs.DEPLOY_ENV }}
     GCLOUD_ZONE: ${{ inputs.GCLOUD_ZONE }}
+    NPM_OLD: ${{ inputs.NPM_OLD }}
