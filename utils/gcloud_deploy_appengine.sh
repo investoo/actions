@@ -15,7 +15,7 @@ echo "Using gcloud config: "
 gcloud config list
 
 echo "Running gcloud app deploy app_generated.yml"
-gcloud app deploy app_generated.yml
+gcloud app deploy app_generated.yml --verbosity=debug
 
 echo "Running gcloud app deploy dispatch.yml"
 gcloud app deploy dispatch.yml
