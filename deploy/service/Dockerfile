@@ -1,4 +1,4 @@
-FROM investoo/gcloud-sdk
+FROM google/cloud-sdk
 
 WORKDIR /app
 COPY . /app
