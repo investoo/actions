@@ -10,6 +10,8 @@ cp ../../app/dispatch/${DEPLOY_ENV}.yml dispatch.yml
 
 envsubst "$(env | cut -d= -f1 | sed -e 's/^/$/')" < "deploy/${DEPLOY_ENV}/app.yml" > app_generated.yml
 
+echo "Using app_generated.yml"
+cat app_generated.yml
 
 echo "Using gcloud config: "
 gcloud config list --all
