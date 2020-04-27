@@ -4,8 +4,6 @@ echo "Deploying app to App Engine"
 
 set -x -o nounset -o errexit
 
-"Unsetting CLOUDSDK_CORE_PROJECT: ${CLOUDSDK_CORE_PROJECT}"
-
 unset CLOUDSDK_CORE_PROJECT
 
 cp ../../app/dispatch/${DEPLOY_ENV}.yml dispatch.yml
