@@ -1,4 +1,4 @@
-FROM investoo/gcloud-sdk
+FROM investoo/gcloud-from-ubuntu
 
 WORKDIR /app
 COPY . /app
