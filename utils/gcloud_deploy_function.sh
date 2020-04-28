@@ -4,7 +4,7 @@ echo "Deploying app to Cloud Functions"
 
 set -x -o nounset -o errexit
 
-test -f .env.yaml || touch .env.yaml
+# test -f .env.yaml || touch .env.yaml
 envsubst "$(env | cut -d= -f1 | sed -e 's/^/$/')" < ".env.yaml" > .env.yaml
 
 cat .env.yaml
