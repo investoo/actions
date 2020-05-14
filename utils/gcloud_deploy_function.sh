@@ -4,7 +4,7 @@ echo "Deploying app to Cloud Functions"
 
 set -x -o nounset -o errexit
 
-test -f .env.yaml || echo "NOVARS: yes" > .env.yaml
+test -f .env.yaml || echo "NOVARS: 'ok'" > .env.yaml
 envsubst "$(env | cut -d= -f1 | sed -e 's/^/$/')" < .env.yaml > .env_generated.yaml
 
 if [ $TRIGGER = HTTP ]; then
