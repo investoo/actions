@@ -22,6 +22,9 @@ inputs:
   TRIGGER_TOPIC:
     description: 'What topic triggers the function? Only required if input.TRIGGER is set to "TOPIC"'
     default: false
+  TIMEOUT:
+    description: 'The timeout in seconds'
+    default: 120
 
 runs:
   using: 'docker'
@@ -34,3 +37,4 @@ runs:
     MEMORY: ${{ inputs.MEMORY }}
     TRIGGER: ${{ inputs.TRIGGER }}
     TRIGGER_TOPIC: ${{ inputs.TRIGGER_TOPIC }}
+    TIMEOUT: ${{ inputs.TIMEOUT }}
