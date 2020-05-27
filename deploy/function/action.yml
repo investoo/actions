@@ -9,7 +9,7 @@ inputs:
     default: handle
   RUNTIME:
     description: 'Runtime environment that the function runs in'
-    default: nodejs12
+    default: nodejs10
   REGION:
     description: 'Deployment region'
     default: 'europe-west2'
