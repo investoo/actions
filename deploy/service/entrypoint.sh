@@ -12,4 +12,6 @@ fi
 
 ./actions-repository/utils/npm_create_npmrc.sh
 
+./actions-repository/utils/gcloud_delete_appengine_services.sh
+
 ./actions-repository/utils/gcloud_deploy_appengine.sh
