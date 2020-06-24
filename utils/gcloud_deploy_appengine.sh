@@ -7,6 +7,7 @@ set -x -o nounset -o errexit
 unset CLOUDSDK_CORE_PROJECT
 
 cp ../../app/dispatch/"${DEPLOY_ENV}".yml dispatch.yml
+[ -f "../../app/cron/${DEPLOY_ENV}.yml" ] && cp ../../app/cron/"${DEPLOY_ENV}".yml cron.yml
 
 envsubst "$(env | cut -d= -f1 | sed -e 's/^/$/')" < "deploy/${DEPLOY_ENV}/app.yml" > app_generated.yml
 
@@ -21,3 +22,9 @@ gcloud app deploy app_generated.yml --verbosity=debug
 
 echo "Running gcloud app deploy dispatch.yml"
 gcloud app deploy dispatch.yml
+
+if [ -f cron.yml ]
+then
+  echo "Running gcloud app deploy cron.yml"
+  gcloud app deploy cron.yaml
+fi
