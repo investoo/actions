@@ -1,0 +1,5 @@
+cron:
+- description: "Submit geo links to be checked"
+  url: /api/v1/private/link-status/check
+  schedule: every 7 days
+  target: offers
