@@ -25,5 +25,5 @@ unset CLOUDSDK_CORE_PROJECT
 
 if [ -e cron.yml ]; then
   echo "Running gcloud app deploy cron.yml"
-  gcloud app deploy cron.yaml
+  gcloud app deploy cron.yml
 fi
