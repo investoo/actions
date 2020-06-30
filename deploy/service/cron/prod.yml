@@ -1,9 +1,9 @@
 cron:
 - description: "Submit geo links to be checked"
   url: /api/v1/private/link-status/check
-  schedule: every 1 hours from 00:50 to 23:50
+  schedule: every day at 07:45
   target: offers
 - description: "Update Slack on broken links"
   url: /api/v1/private/link-status/notify
-  schedule: every 1 hours from 09:00 to 17:00
+  schedule: every mon,tue,wed,thu,fri 08:00
   target: offers
