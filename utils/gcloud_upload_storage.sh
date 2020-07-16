@@ -10,4 +10,4 @@ TARGET_VERSION=$(python -c "import json; print json.load(open('package.json'))['
 IFS=, read -ra MAJOR_VERSION <<< "${TARGET_VERSION//./,}"
 declare -p MAJOR_VERSION
 
-# gsutil -m cp -r -z dist/* gs://"${GCLOUD_BUCKET_NAME}"/"${GH_PROJECT_NAME}"/v"${MAJOR_VERSION[0]}"/
+gsutil -m cp -r -z dist/* gs://"${GCLOUD_BUCKET_NAME}"/"${GH_PROJECT_NAME}"/v"${MAJOR_VERSION[0]}"/
