@@ -7,6 +7,6 @@ unset CLOUDSDK_CORE_PROJECT
 
 TARGET_VERSION=$(python -c "import json; print json.load(open('package.json'))['version']")
 
-IFS=. MAJOR_VERSION=( $TARGET_VERSION )
+MAJOR_VERSION="${TARGET_VERSION%%.*}"
 
 l -m cp -r -z dist/* gs://"${GCLOUD_BUCKET_NAME}"/"${GH_PROJECT_NAME}"/v"${MAJOR_VERSION[0]}"/
