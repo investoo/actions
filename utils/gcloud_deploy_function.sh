@@ -2,6 +2,8 @@
 
 echo "Deploying app to Cloud Functions"
 
+ls
+
 set -x -o nounset -o errexit
 
 test -f .env.yaml || touch .env.yaml
