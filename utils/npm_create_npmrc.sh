@@ -3,6 +3,6 @@
 echo "Creating .npmrc"
 
 echo "
-registry=https://npm.pkg.github.com/investoo
+@investoo:registry=https://npm.pkg.github.com/investoo
 //npm.pkg.github.com/:_authToken=${NPM_TOKEN}
 " > .npmrc
