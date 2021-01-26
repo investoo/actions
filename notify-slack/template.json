@@ -57,6 +57,9 @@
 					"text": ":louis-1::louis-2::louis-3: <${GITHUB_WORKFLOW_URL}|More Details>"
 				}
 			]
+		},
+		{
+			"type": "divider"
 		}
 	]
 }
