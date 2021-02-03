@@ -5,9 +5,9 @@ echo "Deploying app to Firebase"
 set -x -o nounset -o errexit
 
 if [ "$DEPLOY_ENV" = prod ]; then
-  envsubst "$(env | cut -d= -f1 | sed -e 's/^/$/')" < .env > .env
+  envsubst < .env > .env.tmp && mv .env.tmp .env
 else
-  envsubst "$(env | cut -d= -f1 | sed -e 's/^/$/')" < .env.staging > .env.staging
+  envsubst < .env.staging > .env.tmp && mv .env.tmp .env.staging
 fi
 
 export GOOGLE_PROJECT_ID=$GCLOUD_PROJECT_ID
