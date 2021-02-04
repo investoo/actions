@@ -1,4 +1,4 @@
-FROM investoo/gcloud-from-ubuntu
+FROM investoo/gcloud-from-ubuntu:326
 
 WORKDIR /app
 COPY . /app
