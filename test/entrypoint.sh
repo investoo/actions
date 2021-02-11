@@ -7,6 +7,8 @@ git clone https://github.com/investoo/actions.git actions-repository
 ./actions-repository/utils/npm_install.sh
 
 if [ $NEEDS_DOCKER = true ]; then
+  docker-compose up -d
+  echo "Docker is up"
   echo "Ultimate signed commit"
   echo "docker-compose.yml: "
   cat ./docker-compose.yml
