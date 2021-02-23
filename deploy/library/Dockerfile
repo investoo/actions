@@ -1,4 +1,4 @@
-FROM investoo/gcloud-sdk
+FROM investoo/gcloud-sdk:latest
 
 COPY entrypoint.sh /entrypoint.sh
 
