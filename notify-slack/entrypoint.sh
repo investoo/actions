@@ -9,7 +9,7 @@ if [ $DEPLOYMENT_SUCCESSFUL = true ]; then
   export DEPLOYMENT_MESSAGE=":white_check_mark: *Deployment $DEPLOYMENT_STATUS*"
 else
   export DEPLOYMENT_STATUS=Failed
-  export DEPLOYMENT_MESSAGE=":x: *Deployment $DEPLOYMENT_STATUS*"
+  export DEPLOYMENT_MESSAGE=":x: *$DEPLOYMENT_TARGET deployment $DEPLOYMENT_STATUS*"
 fi
 
 envsubst < /template.json > message.json
