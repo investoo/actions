@@ -1,0 +1,5 @@
+cron:
+- description: "Send Geo Links to be checked via the check-link-status cloud function"
+  url: /api/v1/private/link-status/check
+  schedule: every 1 hour
+  target: offers
