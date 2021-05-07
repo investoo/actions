@@ -3,3 +3,7 @@ cron:
   url: /api/v1/private/link-status/check
   schedule: every 1 hours
   target: offers
+- description: "Get latest crypto coin prices"
+  url: /api/v2/coins/latest/cache
+  schedule: every 15 minutes
+  target: prices
