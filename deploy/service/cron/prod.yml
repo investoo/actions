@@ -6,7 +6,7 @@ cron:
 - description: "Get latest crypto coin prices"
   url: /api/v2/coins/cache/latest
   schedule: every 15 minutes
-  target: prices-
+  target: prices
 - description: "Get latest forex prices"
   url: /api/v2/forex/cache/latest
   schedule: every 15 minutes
