@@ -2,6 +2,4 @@
 
 node -v
 
-npm set-script prepare ""
-
-npm ci
+npm ci --ignore-scripts
