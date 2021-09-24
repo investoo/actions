@@ -2,4 +2,4 @@
 
 node -v
 
-npm ci --ignore-scripts
+npm ci
