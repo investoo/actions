@@ -9,4 +9,4 @@ registry=https://npm.pkg.github.com/investoo
 
 echo "Logging .npmrc contents"
 
-echo "$(<.npmrc)"
+cat .npmrc
