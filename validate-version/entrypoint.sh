@@ -1,10 +1,6 @@
 #!/bin/sh -l
 
-git --version
-
 git config --global safe.directory "$GITHUB_WORKSPACE"
-
-whoami
 
 git fetch origin master
 
