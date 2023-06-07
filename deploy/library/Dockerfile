@@ -1,9 +1,9 @@
 FROM investoo/gcloud-sdk
 
-RUN apt-get install --yes curl
-RUN curl --silent --location https://deb.nodesource.com/setup_16.x | bash -
-RUN apt-get install --yes nodejs
-RUN apt-get install --yes build-essential
+RUN apt-get update
+RUN apt-get update -y nodejs npm
+RUN curl -fsSL https://deb.nodesource.com/setup_current.x | bash -
+RUN apt-get install -y nodejs
 
 COPY entrypoint.sh /entrypoint.sh
 
