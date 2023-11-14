@@ -4,6 +4,8 @@ echo "Deploying app to Firebase"
 
 set -x -o nounset -o errexit
 
+set -o xtrace
+
 export GOOGLE_PROJECT_ID=$GCLOUD_PROJECT_ID
 
 npx firebase use --add "${GOOGLE_PROJECT_ID}" --token "$FIREBASE_TOKEN"
