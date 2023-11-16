@@ -27,4 +27,4 @@ jobs:
 
           # Example: Deploying a message to Slack
           echo '{"blocks": [{"type": "section","text": {"type": "plain_text","text": "This is a plain text section block.","emoji": true}}]}' > message.json
-          curl -X POST -H 'Content-type: application/json' --data '@message.json' ${{ inputs.WEBHOOK_URL }}
+          curl POST -H 'Content-type: application/json' --data '@message.json' https://hooks.slack.com/services/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
