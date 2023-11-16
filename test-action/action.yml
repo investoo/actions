@@ -1,0 +1,30 @@
+name: Test action
+
+on:
+  push:
+    branches:
+      - master # Change this to your main branch name
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '14'
+
+      - name: Install dependencies
+        run: npm install # Adjust this if your project uses a different package manager
+
+      - name: Build and deploy
+        run: |
+          # Add your deployment commands here
+
+          # Example: Deploying a message to Slack
+          echo '{"text": "Deployment successful!"}' > message.json
+          curl -X POST -H 'Content-type: application/json' --data '@message.json' ${{ secrets.SLACK_WEBHOOK_URL }}
