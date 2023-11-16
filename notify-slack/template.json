@@ -1,5 +1,4 @@
 {
-	"text": "Deployment of ${GITHUB_REPOSITORY} ${DEPLOYMENT_STATUS}",
 	"blocks": [
 		{
 			"type": "section",
