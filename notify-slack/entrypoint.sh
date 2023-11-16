@@ -14,4 +14,4 @@ fi
 
 envsubst < /template.json > message.json
 
-curl -X POST -H 'Content-type: application/json' --data '@message.json' $WEBHOOK_URL
+curl -X POST -H 'Content-type: application/json' --data '@message.json' https://hooks.slack.com/services/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
