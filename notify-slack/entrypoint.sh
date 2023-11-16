@@ -14,4 +14,15 @@ fi
 
 envsubst < /template.json > message.json
 
-curl -X POST -H 'Content-type: application/json' --data '@message.json' https://hooks.slack.com/services/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
+# Add debug information
+echo "Debug Information:"
+echo "GitHub Repository URL: $GITHUB_REPO_URL"
+echo "GitHub Workflow URL: $GITHUB_WORKFLOW_URL"
+echo "GitHub Commit URL: $GITHUB_COMMIT_URL"
+echo "Deployment Status: $DEPLOYMENT_STATUS"
+echo "Deployment Message: $DEPLOYMENT_MESSAGE"
+echo "Contents of message.json:"
+cat message.json
+
+# Debugging curl
+curl -v -X POST -H 'Content-type: application/json' --data '@message.json' https://hooks.slack.com/services/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
