@@ -14,8 +14,8 @@ envsubst "$(env | cut -d= -f1 | sed -e 's/^/$/')" < "deploy/${DEPLOY_ENV}/app.ym
 echo "Using app_generated.yml"
 cat app_generated.yml
 
-# echo "Using gcloud config: "
-# gcloud config list --all
+echo "Using gcloud config: "
+gcloud config list --all
 
 # echo "Running gcloud app deploy app_generated.yml"
 # gcloud app deploy app_generated.yml --verbosity=debug
