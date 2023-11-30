@@ -1,9 +1,5 @@
 name: Test
 
-on:
-  pull_request:
-    branches: [staging, master]
-
 - name: Send custom JSON data to Slack workflow
   id: slack
   uses: slackapi/slack-github-action@v1.24.0
