@@ -1,19 +1,25 @@
-name: 'Run Tests'
-inputs:
-  DEPLOYMENT_TARGET:
-    description: 'What environment are you trying to deploy to?'
-    required: true
-  DEPLOYMENT_SUCCESSFUL:
-    description: 'Was the deployment successful?'
-    default: false
-  WEBHOOK_URL:
-    description: 'The Slack webhook URL that the message will be sent to'
-    required: true
-
-runs:
-  using: 'docker'
-  image: 'Dockerfile'
-  env:
-    DEPLOYMENT_TARGET: ${{ inputs.DEPLOYMENT_TARGET }}
-    DEPLOYMENT_SUCCESSFUL: ${{ inputs.DEPLOYMENT_SUCCESSFUL }}
-    WEBHOOK_URL: ${{ inputs.WEBHOOK_URL }}
+name: Reusable Workflow
+  on:
+    workflow_call:
+      inputs:
+        input1:
+          required: true
+          type: string
+      outputs:
+        output1:
+          type: string
+  jobs:
+    build:
+      runs-on: ubuntu-latest
+      steps:
+      - name: Send custom JSON data to Slack workflow
+        id: slack
+        uses: slackapi/slack-github-action@v1.24.0
+        with:
+          # This data can be any valid JSON from a previous step in the GitHub Action
+          payload: |
+            {
+              "text": "this works"
+            }
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.WEBHOOK_URL_SLACK }}
