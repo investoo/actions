@@ -24,7 +24,7 @@ jobs:
       run: npm install
 
 
-    - name: Run custom action
-      run: node index.js
-      env:
-        INPUT_MESSAGE: hey
+    # - name: Run custom action
+    #   run: node index.js
+    #   env:
+    #     INPUT_MESSAGE: hey
