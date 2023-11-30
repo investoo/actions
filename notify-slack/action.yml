@@ -21,6 +21,6 @@ jobs:
         node-version: '12'
 
     - name: Run custom action
-      run: node ${{ github.action_path }}/index.js
+      run: node index.js
       env:
         INPUT_MESSAGE: ${{ inputs.message }}
