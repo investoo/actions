@@ -1,32 +1,10 @@
-name: Greeting from Mona
-
+name: 'Custom Action'
 on: push
-
-jobs:
-  my-job:
-    name: My Job
-    runs-on: ubuntu-latest
-    steps:
-      - name: Print a greeting
-        env:
-          MY_VAR: Hi there! My name is
-          FIRST_NAME: Mona
-          MIDDLE_NAME: The
-          LAST_NAME: Octocat
-        run: |
-          echo $MY_VAR $FIRST_NAME $MIDDLE_NAME $LAST_NAME.
-
-      - name: Send custom JSON data to Slack workflow
-        id: slack
-        uses: slackapi/slack-github-action@v1.24.0
-        with:
-          # This data can be any valid JSON from a previous step in the GitHub Action
-          payload: |
-            {
-              "text": "value"
-            }
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.WEBHOOK_URL_SLACK }}
-
-
-
+description: 'A custom action that prints a message'
+inputs:
+    message:
+        description: 'The message to print'
+required: true
+runs:
+  using: 'node12'
+  main: 'index.js'
