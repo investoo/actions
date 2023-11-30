@@ -11,6 +11,7 @@ test -f .env.yaml || touch .env.yaml
 # envsubst "$(env | cut -d= -f1 | sed -e 's/^/$/')" < .env.yaml > .env_generated.yaml
 envsubst < .env.yaml > .env_generated.yaml
 
+echo "contents of .env_generated.yaml"
 cat .env_generated.yaml
 
 if [ "$TRIGGER" = HTTP ]; then
