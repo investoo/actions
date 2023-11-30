@@ -1,5 +1,9 @@
 name: 'Custom Action'
 description: 'A custom action that prints a message'
+inputs:
+  message:
+    description: 'The message to print'
+    required: true
 runs:
   using: 'node12'
   main: 'index.js'
@@ -19,4 +23,4 @@ jobs:
     - name: Run custom action
       run: node index.js
       env:
-        INPUT_MESSAGE: ${{ inputs.message }}
+        INPUT_MESSAGE: hey
