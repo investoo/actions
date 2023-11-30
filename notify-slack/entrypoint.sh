@@ -23,6 +23,7 @@ echo "Deployment Status: $DEPLOYMENT_STATUS"
 echo "Deployment Message: $DEPLOYMENT_MESSAGE"
 echo "Contents of message.json:"
 cat message.json
+echo 'web hook url'
 echo $WEBHOOK_URL
 
 # Debugging curl
