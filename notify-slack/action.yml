@@ -1,19 +1,14 @@
 name: 'Run Tests'
-inputs:
-  DEPLOYMENT_TARGET:
-    description: 'What environment are you trying to deploy to?'
+     // Example of a custom action
+    // action.yml
+    name: 'Custom Action'
+    description: 'A custom action that prints a message'
+    inputs: message:
+    description: 'The message to print'
     required: true
-  DEPLOYMENT_SUCCESSFUL:
-    description: 'Was the deployment successful?'
-    default: false
-  WEBHOOK_URL:
-    description: 'The Slack webhook URL that the message will be sent to'
-    required: true
+    runs:
+    	using: 'node12'
+    	main: 'index.js'
+    
 
-runs:
-  using: 'docker'
-  image: 'Dockerfile'
-  env:
-    DEPLOYMENT_TARGET: ${{ inputs.DEPLOYMENT_TARGET }}
-    DEPLOYMENT_SUCCESSFUL: ${{ inputs.DEPLOYMENT_SUCCESSFUL }}
-    WEBHOOK_URL: ${{ inputs.WEBHOOK_URL }}
+     
