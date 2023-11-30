@@ -12,6 +12,10 @@ else
   export DEPLOYMENT_MESSAGE=":x: *$DEPLOYMENT_TARGET deployment $DEPLOYMENT_STATUS*"
 fi
 
+# Add CA certificate update step
+apk --no-cache add ca-certificates
+update-ca-certificates
+
 envsubst < /template.json > message.json
 
 # Add debug information
