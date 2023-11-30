@@ -23,6 +23,7 @@ echo "Deployment Status: $DEPLOYMENT_STATUS"
 echo "Deployment Message: $DEPLOYMENT_MESSAGE"
 echo "Contents of message.json:"
 cat message.json
+echo $WEBHOOK_URL
 
 # Debugging curl
-curl -v POST -H 'Content-type: application/json' --data '@message.json' https://hooks.slack.com/services/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
+curl -v POST -H 'Content-type: application/json' --data '@message.json' $WEBHOOK_URL
