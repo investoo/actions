@@ -18,17 +18,5 @@ update-ca-certificates
 
 envsubst < /template.json > message.json
 
-# Add debug information
-echo "Debug Information:"
-echo "GitHub Repository URL: $GITHUB_REPO_URL"
-echo "GitHub Workflow URL: $GITHUB_WORKFLOW_URL"
-echo "GitHub Commit URL: $GITHUB_COMMIT_URL"
-echo "Deployment Status: $DEPLOYMENT_STATUS"
-echo "Deployment Message: $DEPLOYMENT_MESSAGE"
-echo "Contents of message.json:"
-cat message.json
-echo 'web hook url'
-echo $WEBHOOK_URL
-
 # Debugging curl
 curl -v POST -H 'Content-type: application/json' --data '@message.json' $WEBHOOK_URL
