@@ -15,3 +15,7 @@ jobs:
           LAST_NAME: Octocat
         run: |
           echo $MY_VAR $FIRST_NAME $MIDDLE_NAME $LAST_NAME.
+      - name: Send custom JSON data to Slack workflow
+      run: |
+          echo hey.
+
