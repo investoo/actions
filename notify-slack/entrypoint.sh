@@ -18,5 +18,9 @@ update-ca-certificates
 
 envsubst < /template.json > message.json
 
+POST_DATA="{\"text\":\"hey\"}"
+
 # Debugging curl
-curl -v POST -H 'Content-type: application/json' --data '@message.json' $WEBHOOK_URL
+wget --quiet --method=POST --header="Content-Type: application/json" --body-data="$POST_DATA" "$WEBHOOK_URL"
+
+# curl -v POST -H 'Content-type: application/json' --data '@message.json' $WEBHOOK_URL
