@@ -23,5 +23,5 @@ on:
         ]
       }
   env:
-    SLACK_WEBHOOK_URL: https://hooks.slack.com/services/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
+    SLACK_WEBHOOK_URL: ${{ secrets.WEBHOOK_URL_SLACK }}
     SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
