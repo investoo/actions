@@ -20,8 +20,8 @@ gcloud config list --all
 echo "Running gcloud app deploy app_generated.yml"
 gcloud app deploy app_generated.yml --verbosity=debug
 
-echo "Running gcloud app deploy dispatch.yml"
-gcloud app deploy dispatch.yml
+# echo "Running gcloud app deploy dispatch.yml"
+# gcloud app deploy dispatch.yml
 
 if [ -e cron.yml ]; then
   echo "Running gcloud app deploy cron.yml"
