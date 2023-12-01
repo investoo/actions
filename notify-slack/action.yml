@@ -43,11 +43,11 @@ runs:
                 "fields": [
                   {
                     "type": "mrkdwn",
-                    "text": "*Repository* \n <${{ github.repositoryUrl }}|${GITHUB_REPOSITORY}>"
+                    "text": "*Repository* \n <${{ github.repositoryUrl }}|${{ github.repository }}>"
                   },
                   {
                     "type": "mrkdwn",
-                    "text": "*Triggered By* \n ${GITHUB_ACTOR}"
+                    "text": "*Triggered By* \n ${{ github.triggering_actor }}"
                   }
                 ]
               },
