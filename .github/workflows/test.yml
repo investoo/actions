@@ -16,7 +16,7 @@ jobs:
         run: |
           SUCCESS=false; [ ${{ job.status }} = success ] && SUCCESS=true
           echo "DEPLOYMENT_SUCCESSFUL=${SUCCESS}" >> $GITHUB_ENV
-      - uses: investoo/actions/notify-slack-2@master
+      - uses: investoo/actions/notify-slack@master
         if: always()
         name: Send deployment result to Slack
         with:
