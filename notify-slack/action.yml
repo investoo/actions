@@ -35,5 +35,5 @@ runs:
             "text": "this is a test"
           }
       env:
-        SLACK_WEBHOOK_URL: ${{ secrets.WEBHOOK_URL_SLACK }}
+        SLACK_WEBHOOK_URL: ${{ inputs.WEBHOOK_URL }}
         SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
