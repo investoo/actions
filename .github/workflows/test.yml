@@ -1,0 +1,26 @@
+name: CI Production
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Record Deployment Result
+        if: always()
+        run: |
+          SUCCESS=false; [ ${{ job.status }} = success ] && SUCCESS=true
+          echo "DEPLOYMENT_SUCCESSFUL=${SUCCESS}" >> $GITHUB_ENV
+      - uses: investoo/actions/notify-slack-2@master
+        if: always()
+        name: Send deployment result to Slack
+        with:
+          DEPLOYMENT_TARGET: Production
+          DEPLOYMENT_SUCCESSFUL: $DEPLOYMENT_SUCCESSFUL
+          WEBHOOK_URL: ${{ secrets.WEBHOOK_URL_SLACK }}
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
