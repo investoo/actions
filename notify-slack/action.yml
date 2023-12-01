@@ -30,7 +30,7 @@ runs:
         else
           MESSAGE="Deployment failed"
         fi
-        echo "MESSAGE=${MESSAGE}" >> $GITHUB_ENV
+        echo "MESSAGE=${MESSAGE}" >> $GITHUB_OUTPUT
 
     - name: Send custom JSON data to Slack workflow
       id: slack
@@ -43,7 +43,7 @@ runs:
                 "type": "section",
                 "text": {
                   "type": "mrkdwn",
-                  "text": "hey ${{ steps.deployment_message.outputs.test }}"
+                  "text": "hey ${{ steps.deployment_message.outputs.MESSAGE }}"
                 }
               },
               {
