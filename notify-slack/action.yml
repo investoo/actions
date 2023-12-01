@@ -21,6 +21,7 @@ runs:
       uses: actions/checkout@v3
 
     - name: Record Deployment Result
+      shell: bash
       if: always()
       run: |
         SUCCESS=false; [ ${{ job.status }} = success ] && SUCCESS=true
