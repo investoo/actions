@@ -1,19 +1,14 @@
-name: Greeting from Mona
-
-on: push
+on: [push]
 
 jobs:
-  my-job:
-    name: My Job
+  new_push_job:
     runs-on: ubuntu-latest
+    name: New push to repo
     steps:
-      - name: Send custom JSON data to Slack workflow
-        id: slack
-        uses: slackapi/slack-github-action@v1.24.0
-        with:
-          payload-file-path: "./.github/payloads/example.json"
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.WEBHOOK_URL_SLACK }}
-# 
-
-
+    - name: Send GitHub trigger payload to Slack Workflow Builder
+      id: slack
+      uses: slackapi/slack-github-action@v1.24.0
+      with:
+        payload-file-path: "./.github/payloads/example.json"
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
