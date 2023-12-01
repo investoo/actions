@@ -27,7 +27,8 @@ runs:
         # This data can be any valid JSON from a previous step in the GitHub Action
         payload: |
           {
-            "text": "${{ inputs.DEPLOYMENT_TARGET }}${{ inputs.DEPLOYMENT_SUCCESSFUL }} ${{ inputs.WEBHOOK_URL }}"
+            "text": "${{ inputs.DEPLOYMENT_TARGET }}${{ inputs.DEPLOYMENT_SUCCESSFUL }} ${{ inputs.WEBHOOK_URL }}",
+            "channel": "notify-deployments"
           }
       env:
         SLACK_WEBHOOK_URL: ${{ inputs.WEBHOOK_URL }}
