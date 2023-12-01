@@ -26,9 +26,9 @@ runs:
       if: always()
       run: |
         if [ "${{ job.status }}" = "success" ]; then
-          MESSAGE="Deployment successful"
+          MESSAGE=":white_check_mark: Deployment successful"
         else
-          MESSAGE="Deployment failed"
+          MESSAGE=":x: Deployment failed"
         fi
         echo "MESSAGE=${MESSAGE}" >> $GITHUB_OUTPUT
 
@@ -43,7 +43,7 @@ runs:
                 "type": "section",
                 "text": {
                   "type": "mrkdwn",
-                  "text": "hey ${{ steps.deployment_message.outputs.MESSAGE }}"
+                  "text": "${{ steps.deployment_message.outputs.MESSAGE }}"
                 }
               },
               {
