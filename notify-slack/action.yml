@@ -39,7 +39,7 @@ runs:
                 "type": "section",
                 "text": {
                   "type": "mrkdwn",
-                  "text": "${DEPLOYMENT_SUCCESSFUL2}"
+                  "text": "${{ DEPLOYMENT_SUCCESSFUL2 }}"
                 }
               },
               {
