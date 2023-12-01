@@ -81,7 +81,7 @@ runs:
                 "elements": [
                   {
                     "type": "mrkdwn",
-                    "text": "<${GITHUB_WORKFLOW_URL}|More Details>"
+                    "text": "<https://github.com/${{ github.repository }}/actions/runs${{ github.run_id }}|More Details>"
                   }
                 ]
               },
