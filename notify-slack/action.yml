@@ -15,5 +15,19 @@ inputs:
     required: true
 
 runs:
-  using: 'node12'
-  main: 'dist/index.js'
+  using: "composite"
+  steps:
+    - name: Check out Git repository
+      uses: actions/checkout@v3
+
+    - name: Send custom JSON data to Slack workflow
+      id: slack
+      uses: slackapi/slack-github-action@v1.24.0
+      with:
+        # This data can be any valid JSON from a previous step in the GitHub Action
+        payload: |
+          {
+            "text": "${{ inputs.DEPLOYMENT_TARGET }}${{ inputs.DEPLOYMENT_SUCCESSFUL }} ${{ inputs.WEBHOOK_URL }}"
+          }
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.WEBHOOK_URL_SLACK }}
