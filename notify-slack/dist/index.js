@@ -37440,8 +37440,8 @@ const { context = {} } = github;
 const { pull_request } = context.payload;
 
 const main = async () => {
-  const res = await axios.get('https://offers.igms.io/api/v1/public/visit/1k-daily-profit-crypto-robots?noRedirect=true&channel=crypto&country=DE&language=nl')
-  console.log({ res })
+  // const res = await axios.post('https://offers.igms.io/api/v1/public/visit/1k-daily-profit-crypto-robots?noRedirect=true&channel=crypto&country=DE&language=nl')
+  console.log({ context })
 };
 
 main();
