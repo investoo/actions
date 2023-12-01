@@ -56,7 +56,7 @@ runs:
                 "fields": [
                   {
                     "type": "mrkdwn",
-                    "text": "*Commit* \n <${GITHUB_COMMIT_URL}|${{ github.workflow_sha }}>"
+                    "text": "*Commit* \n <https://github.com/${{ github.repository }}/commit/${{ github.workflow_sha }}|${{ github.workflow_sha }}>"
                   },
                   {
                     "type": "mrkdwn",
@@ -81,7 +81,7 @@ runs:
                 "elements": [
                   {
                     "type": "mrkdwn",
-                    "text": ":louis-1::louis-2::louis-3: <${GITHUB_WORKFLOW_URL}|More Details>"
+                    "text": "<${GITHUB_WORKFLOW_URL}|More Details>"
                   }
                 ]
               },
