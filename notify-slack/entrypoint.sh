@@ -12,6 +12,8 @@ else
   export DEPLOYMENT_MESSAGE=":x: *$DEPLOYMENT_TARGET deployment $DEPLOYMENT_STATUS*"
 fi
 
+echo $DEPLOYMENT_SUCCESSFUL;
+
 envsubst < /template.json > message.json
 
 Debugging curl
