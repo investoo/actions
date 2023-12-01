@@ -8,6 +8,7 @@ const GITHUB_TOKEN = core.getInput("GITHUB_TOKEN");
 // const { pull_request } = context.payload;
 
 const main = async () => {
+  console.log('The GITHUB_TOKEN value', GITHUB_TOKEN)
   // await octokit.issues.createComment({
   //   ...context.repo,
   //   issue_number: pull_request.number,
