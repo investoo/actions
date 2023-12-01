@@ -40,7 +40,7 @@ runs:
                 "type": "section",
                 "text": {
                   "type": "mrkdwn",
-                  "text": "hey ${{ steps.deployment_message.outputs }}"
+                  "text": "hey ${{ steps.deployment_message.outputs.test }}"
                 }
               },
               {
