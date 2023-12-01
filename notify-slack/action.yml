@@ -1,20 +1,13 @@
-name: 'Custom Action'
-description: 'A custom action that prints a message'
+name: 'Thank You Action'
+
 inputs:
-  message:
-    description: 'The message to print'
+  GITHUB_TOKEN:
+    description: 'GitHub token'
     required: true
+  TENOR_TOKEN:
+    description: 'Tenor API token'
+    required: true
+
 runs:
-  using: 'composite'
-  shell: bash
-  steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
-
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '12'
-
-    - name: Install Node.js dependencies
-      run: npm install
+  using: 'node12'
+  main: 'dist/index.js'
