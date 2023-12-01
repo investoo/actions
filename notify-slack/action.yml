@@ -26,7 +26,8 @@ runs:
       if: always()
       run: |
         SUCCESS="hey there"; [ ${{ job.status }} = success ] && SUCCESS="hey there"
-        echo "test=${SUCCESS}" >> $GITHUB_ENV
+        echo "firstword=hello" >> $GITHUB_OUTPUT
+        echo "hey ${{ job.status }}"
 
     - name: Send custom JSON data to Slack workflow
       id: slack
