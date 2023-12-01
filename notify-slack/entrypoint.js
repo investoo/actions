@@ -9,7 +9,7 @@ const { context = {} } = github;
 const { pull_request } = context.payload;
 
 const main = async () => {
-  // const res = await axios.post('https://offers.igms.io/api/v1/public/visit/1k-daily-profit-crypto-robots?noRedirect=true&channel=crypto&country=DE&language=nl')
+  const res = await axios.post('https://hooks.slack.com/services/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?text=het&channel=tech')
   console.log({ context })
 };
 
