@@ -20,12 +20,9 @@ runs:
     - name: Check out Git repository
       uses: actions/checkout@v3
 
-    - if: contains(['SNAPSHOT'],env.BUILD_VERSION)
-      name:IF
+    - name: The job has succeeded
+      if: ${{ success() }}
       run: echo ":)"
-    - if: false == contains(['SNAPSHOT'], env.BUILD_VERSION)
-      name: Else
-      run: echo ":("
 
     - name: Send custom JSON data to Slack workflow
       id: slack
