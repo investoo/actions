@@ -43,7 +43,7 @@ runs:
                 "fields": [
                   {
                     "type": "mrkdwn",
-                    "text": "*Repository* \n <${GITHUB_REPO_URL}|${GITHUB_REPOSITORY}>"
+                    "text": "*Repository* \n <${{ github.repositoryUrl }}|${GITHUB_REPOSITORY}>"
                   },
                   {
                     "type": "mrkdwn",
