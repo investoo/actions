@@ -11,8 +11,7 @@ jobs:
         id: slack
         uses: slackapi/slack-github-action@v1.24.0
         with:
-          # This data can be any valid JSON from a previous step in the GitHub Action
-          payload-file-path: "template.json"
+          payload-file-path: "../template.json"
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.WEBHOOK_URL_SLACK }}
 # 
