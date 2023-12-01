@@ -60,7 +60,7 @@ runs:
                   },
                   {
                     "type": "mrkdwn",
-                    "text": "*Target* \n ${DEPLOYMENT_TARGET}"
+                    "text": "*Target* \n ${{ inputs.DEPLOYMENT_TARGET }}"
                   }
                 ]
               },
