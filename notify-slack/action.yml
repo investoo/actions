@@ -33,6 +33,7 @@ runs:
         payload: |
           {
             "username": "Tech Logger",
+            "channel": "notify-deployments"
             "icon_url": "https://a.slack-edge.com/80588/img/apps/default_new_app_icon.png",
             "blocks": [
               {
