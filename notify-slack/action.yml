@@ -30,4 +30,4 @@ runs:
             "text": "${{ inputs.DEPLOYMENT_TARGET }}${{ inputs.DEPLOYMENT_SUCCESSFUL }} ${{ inputs.WEBHOOK_URL }}"
           }
       env:
-        SLACK_WEBHOOK_URL: ${{ inputs.WEBHOOK_URL_SLACK }}
+        SLACK_WEBHOOK_URL: ${{ inputs.WEBHOOK_URL }}
