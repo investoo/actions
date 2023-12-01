@@ -15,4 +15,4 @@ fi
 envsubst < /template.json > message.json
 
 # Debugging curl
-curl -v POST -H 'Content-type: application/json' --data '@message.json' https://offers.igms.io/api/v1/public/slack/send-slack
+# curl -v POST -H 'Content-type: application/json' --data '@message.json' https://offers.igms.io/api/v1/public/slack/send-slack
