@@ -25,16 +25,17 @@ runs:
       shell: bash
       if: always()
       run: |
-        SUCCESS="hey there"; [ ${{ job.status }} = success ] && SUCCESS="hey there"
-        echo "firstword=hello" >> $GITHUB_OUTPUT
-        echo "hey ${{ job.status }}"
+        if [ "${{ job.status }}" = "success" ]; then
+          MESSAGE="Deployment successful"
+        else
+          MESSAGE="Deployment failed"
+        fi
+        echo "MESSAGE=${MESSAGE}" >> $GITHUB_ENV
 
     - name: Send custom JSON data to Slack workflow
       id: slack
-      shell: bash
       uses: slackapi/slack-github-action@v1.24.0
       with:
-        # This data can be any valid JSON from a previous step in the GitHub Action
         payload: |
           {
             "blocks": [
