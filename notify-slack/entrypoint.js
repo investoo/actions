@@ -21,6 +21,9 @@ const main = async () => {
       DEPLOYMENT_SUCCESSFUL,
     },
   });
+  return axios.post(WEBHOOK_URL, {
+    text: "het",
+  });
 };
 
 main();
