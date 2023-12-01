@@ -20,11 +20,6 @@ runs:
     - name: Check out Git repository
       uses: actions/checkout@v3
 
-    - name: The job has succeeded
-      shell: bash
-      if: ${{ success() }}
-      echo "::set-env name=DEPLOYMENT_MESSAGE:::white_check_mark: *Deployment Succeeded*"
-
     - name: Send custom JSON data to Slack workflow
       id: slack
       uses: slackapi/slack-github-action@v1.24.0
