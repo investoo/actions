@@ -26,78 +26,14 @@ runs:
         fi
         echo "MESSAGE=${MESSAGE}" >> $GITHUB_OUTPUT
 
-    - name: Send custom JSON data to Slack workflow
+    - uses: slackapi/slack-github-action@v1.24.0
+      name: Send custom JSON data to Slack workflow
       id: slack
-      uses: slackapi/slack-github-action@v1.24.0
       with:
         payload: |
           {
-            "username": "Tech Logger",
-            "channel": "notify-deployments",
-            "icon_url": "https://a.slack-edge.com/80588/img/apps/default_new_app_icon.png",
-            "blocks": [
-              {
-                "type": "section",
-                "text": {
-                  "type": "mrkdwn",
-                  "text": "${{ steps.deployment_message.outputs.MESSAGE }}"
-                }
-              },
-              {
-                "type": "divider"
-              },
-              {
-                "type": "section",
-                "fields": [
-                  {
-                    "type": "mrkdwn",
-                    "text": "*Repository* \n <https://github.com/${{ github.repository }}|${{ github.repository }}>"
-                  },
-                  {
-                    "type": "mrkdwn",
-                    "text": "*Triggered By* \n ${{ github.triggering_actor }}"
-                  }
-                ]
-              },
-              {
-                "type": "section",
-                "fields": [
-                  {
-                    "type": "mrkdwn",
-                    "text": "*Commit* \n <https://github.com/${{ github.repository }}/commit/${{ github.workflow_sha }}|${{ github.workflow_sha }}>"
-                  },
-                  {
-                    "type": "mrkdwn",
-                    "text": "*Target* \n ${{ inputs.DEPLOYMENT_TARGET }}"
-                  }
-                ]
-              },
-              {
-                "type": "section",
-                "fields": [
-                  {
-                    "type": "mrkdwn",
-                    "text": " "
-                  }
-                ]
-              },
-              {
-                "type": "divider"
-              },
-              {
-                "type": "context",
-                "elements": [
-                  {
-                    "type": "mrkdwn",
-                    "text": "<https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}|More Details>"
-                  }
-                ]
-              },
-              {
-                "type": "divider"
-              }
-            ]
+            "text": "this is a test"
           }
       env:
-        SLACK_WEBHOOK_URL: ${{ inputs.WEBHOOK_URL }}
+        SLACK_WEBHOOK_URL: ${{ secrets.WEBHOOK_URL_SLACK }}
         SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
