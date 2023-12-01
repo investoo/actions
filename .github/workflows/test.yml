@@ -11,7 +11,7 @@ jobs:
         id: slack
         uses: slackapi/slack-github-action@v1.24.0
         with:
-          payload-file-path: "../template.json"
+          payload: "{\"text\":\"Incoming Webhook test for slack send\", \"blocks\":[{\"type\":\"section\",\"text\":{\"type\":\"plain_text\",\"text\":\"A post by Slack Send GitHub Action. Testing Incoming webhooks\",\"emoji\":true}}]}"
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.WEBHOOK_URL_SLACK }}
 # 
