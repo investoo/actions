@@ -19,8 +19,61 @@ jobs:
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": "${inputs.DEPLOYMENT_MESSAGE}"
+                    "text": "${DEPLOYMENT_MESSAGE}"
                   }
+                },
+                {
+                  "type": "divider"
+                },
+                {
+                  "type": "section",
+                  "fields": [
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Repository* \n <${GITHUB_REPO_URL}|${GITHUB_REPOSITORY}>"
+                    },
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Triggered By* \n ${GITHUB_ACTOR}"
+                    }
+                  ]
+                },
+                {
+                  "type": "section",
+                  "fields": [
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Commit* \n <${GITHUB_COMMIT_URL}|${GITHUB_SHA}>"
+                    },
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Target* \n ${DEPLOYMENT_TARGET}"
+                    }
+                  ]
+                },
+                {
+                  "type": "section",
+                  "fields": [
+                    {
+                      "type": "mrkdwn",
+                      "text": " "
+                    }
+                  ]
+                },
+                {
+                  "type": "divider"
+                },
+                {
+                  "type": "context",
+                  "elements": [
+                    {
+                      "type": "mrkdwn",
+                      "text": ":louis-1::louis-2::louis-3: <${GITHUB_WORKFLOW_URL}|More Details>"
+                    }
+                  ]
+                },
+                {
+                  "type": "divider"
                 }
               ]
             }
