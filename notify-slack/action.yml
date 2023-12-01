@@ -20,21 +20,12 @@ runs:
     - name: Check out Git repository
       uses: actions/checkout@v3
 
-    - name: Check Deployment Status
-      run: |
-        if [ "${{ github.event.workflow_run.conclusion }}" == "success" ]; then
-          echo "Deployment succeeded!"
-          echo "::set-env name=DEPLOYMENT_STATUS::Succeeded"
-          echo "::set-env name=DEPLOYMENT_MESSAGE:::white_check_mark: *Deployment Succeeded*"
-        else
-          echo "Deployment failed!"
-          echo "::set-env name=DEPLOYMENT_STATUS::Failed"
-          echo "::set-env name=DEPLOYMENT_MESSAGE:::x: *Deployment Failed*"
-        fi
-        
-        echo "DEPLOYMENT_STATUS=${DEPLOYMENT_STATUS}"
-        echo "DEPLOYMENT_MESSAGE=${DEPLOYMENT_MESSAGE}"
-
+    - if: contains(['SNAPSHOT'],env.BUILD_VERSION)
+      name:IF
+      run: echo ":)"
+    - if: false == contains(['SNAPSHOT'], env.BUILD_VERSION)
+      name: Else
+      run: echo ":("
 
     - name: Send custom JSON data to Slack workflow
       id: slack
