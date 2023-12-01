@@ -37431,16 +37431,27 @@ var __webpack_exports__ = {};
 (() => {
 const core = __nccwpck_require__(2186);
 const github = __nccwpck_require__(5438);
-const axios = __nccwpck_require__(8757)
+const axios = __nccwpck_require__(8757);
 
 const GITHUB_TOKEN = core.getInput("GITHUB_TOKEN");
+const WEBHOOK_URL = core.getInput("GITHUB_TOKEN");
+const DEPLOYMENT_TARGET = core.getInput("GITHUB_TOKEN");
+const DEPLOYMENT_SUCCESSFUL = core.getInput("GITHUB_TOKEN");
+
 const octokit = github.getOctokit(GITHUB_TOKEN);
 
 const { context = {} } = github;
 const { pull_request } = context.payload;
 
 const main = async () => {
-  console.log({ context })
+  console.dir({ context }, { depth: Infinity });
+  console.log({
+    inputs: {
+      WEBHOOK_URL,
+      DEPLOYMENT_TARGET,
+      DEPLOYMENT_SUCCESSFUL,
+    },
+  });
 };
 
 main();

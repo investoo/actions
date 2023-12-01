@@ -4,8 +4,14 @@ inputs:
   GITHUB_TOKEN:
     description: 'GitHub token'
     required: true
-  TENOR_TOKEN:
-    description: 'Tenor API token'
+  WEBHOOK_URL:
+    description: 'Slack Webhook URL'
+    required: true
+  DEPLOYMENT_TARGET:
+    description: 'The deployment target (Production / Staging)'
+    required: true
+  DEPLOYMENT_SUCCESSFUL:
+    description: 'If the deployment was sucessful'
     required: true
 
 runs:
