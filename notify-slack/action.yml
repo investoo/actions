@@ -43,7 +43,7 @@ runs:
                 "fields": [
                   {
                     "type": "mrkdwn",
-                    "text": "*Repository* \n <${{ github.repositoryUrl }}|${{ github.repository }}>"
+                    "text": "*Repository* \n <https://github.com/${{ github.repository }}|${{ github.repository }}>"
                   },
                   {
                     "type": "mrkdwn",
@@ -56,7 +56,7 @@ runs:
                 "fields": [
                   {
                     "type": "mrkdwn",
-                    "text": "*Commit* \n <${GITHUB_COMMIT_URL}|${GITHUB_SHA}>"
+                    "text": "*Commit* \n <${GITHUB_COMMIT_URL}|${{ github.workflow_sha }}>"
                   },
                   {
                     "type": "mrkdwn",
