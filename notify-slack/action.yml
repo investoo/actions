@@ -1,39 +1,19 @@
-name: 'Thank You Action'
-
+name: 'Run Tests'
 inputs:
-  WEBHOOK_URL:
-    description: 'Slack Webhook URL'
-    required: true
   DEPLOYMENT_TARGET:
-    description: 'The deployment target (Production / Staging)'
+    description: 'What environment are you trying to deploy to?'
+    required: true
+  DEPLOYMENT_SUCCESSFUL:
+    description: 'Was the deployment successful?'
+    default: false
+  WEBHOOK_URL:
+    description: '(REDUNDENT) The Slack webhook URL that the message will be sent to'
     required: true
 
 runs:
-  using: "composite"
-  steps:
-    - name: Check out Git repository
-      uses: actions/checkout@v3
-
-    - name: Record Deployment Result
-      id: deployment_message
-      shell: bash
-      if: always()
-      run: |
-        if [ "${{ job.status }}" = "success" ]; then
-          MESSAGE=":white_check_mark: Deployment successful"
-        else
-          MESSAGE=":x: Deployment failed"
-        fi
-        echo "MESSAGE=${MESSAGE}" >> $GITHUB_OUTPUT
-
-    - uses: slackapi/slack-github-action@v1.24.0
-      name: Send custom JSON data to Slack workflow
-      id: slack
-      with:
-        payload: |
-          {
-            "text": "this is a test"
-          }
-      env:
-        SLACK_WEBHOOK_URL: ${{ inputs.WEBHOOK_URL }}
-        SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+  using: 'docker'
+  image: 'Dockerfile'
+  env:
+    DEPLOYMENT_TARGET: ${{ inputs.DEPLOYMENT_TARGET }}
+    DEPLOYMENT_SUCCESSFUL: ${{ inputs.DEPLOYMENT_SUCCESSFUL }}
+    WEBHOOK_URL: ${{ inputs.WEBHOOK_URL }}
