@@ -17,4 +17,4 @@ echo $DEPLOYMENT_SUCCESSFUL;
 envsubst < /template.json > message.json
 
 Debugging curl
-curl -v POST -H 'Content-type: application/json' --data '@message.json' $SLACK_PROXY_URL
+curl -v POST -H 'Content-type: application/json' --data '@message.json' $WEBHOOK_URL
