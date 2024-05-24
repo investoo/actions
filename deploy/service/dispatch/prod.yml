@@ -7,3 +7,5 @@ dispatch:
     service: offers
   - url: "integrations.igms.io/*"
     service: integrations
+  - url: "ims.igms.io/*"
+    service: images
