@@ -14,6 +14,8 @@ envsubst < .env.yaml > .env_generated.yaml
 echo "contents of .env_generated.yaml"
 cat .env_generated.yaml
 
+gcloud components update
+
 if [ "$TRIGGER" = HTTP ]; then
   gcloud functions deploy "${GH_PROJECT_NAME}" --entry-point="${ENTRY_POINT}" --runtime="${RUNTIME}" --region="${REGION}" --memory="${MEMORY}" --timeout="${TIMEOUT}" --trigger-http --env-vars-file=.env_generated.yaml
 elif [ "$TRIGGER" = TOPIC ]; then
