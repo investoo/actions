@@ -2,8 +2,6 @@
 
 echo "Deploying app to App Engine"
 
-sudo apt-get update && sudo apt-get --only-upgrade install google-cloud-sdk-cbt google-cloud-sdk-app-engine-java google-cloud-sdk-app-engine-python google-cloud-sdk-pubsub-emulator google-cloud-sdk-app-engine-go google-cloud-sdk-local-extract google-cloud-sdk-skaffold google-cloud-sdk-cloud-build-local google-cloud-sdk-bigtable-emulator google-cloud-sdk-app-engine-python-extras google-cloud-sdk-anthos-auth google-cloud-sdk-firestore-emulator google-cloud-sdk-datalab google-cloud-sdk kubectl google-cloud-sdk-config-connector google-cloud-sdk-spanner-emulator google-cloud-sdk-datastore-emulator google-cloud-sdk-kubectl-oidc google-cloud-sdk-app-engine-grpc google-cloud-sdk-kpt google-cloud-sdk-minikube
-
 set -x -o nounset -o errexit
 
 unset CLOUDSDK_CORE_PROJECT
