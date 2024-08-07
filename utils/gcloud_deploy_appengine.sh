@@ -2,6 +2,8 @@
 
 echo "Deploying app to App Engine"
 
+gcloud components update
+
 set -x -o nounset -o errexit
 
 unset CLOUDSDK_CORE_PROJECT
